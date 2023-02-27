@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Exercici 5
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Exercici 5
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `Exercici 5` ;
+USE `Exercici 5` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Client`
+-- Table `Exercici 5`.`Client`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Client` (
+CREATE TABLE IF NOT EXISTS `Exercici 5`.`Client` (
   `DNI` VARCHAR(45) NOT NULL,
   `User` INT NOT NULL,
   `pwd` VARCHAR(45) NULL,
@@ -32,9 +32,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Tipus_Vehicle`
+-- Table `Exercici 5`.`Tipus_Vehicle`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Tipus_Vehicle` (
+CREATE TABLE IF NOT EXISTS `Exercici 5`.`Tipus_Vehicle` (
   `ID` INT NOT NULL,
   `Nom` VARCHAR(45) NOT NULL,
   `Descripció` VARCHAR(45) NOT NULL,
@@ -43,9 +43,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Cita`
+-- Table `Exercici 5`.`Cita`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Cita` (
+CREATE TABLE IF NOT EXISTS `Exercici 5`.`Cita` (
   `Matricula_Vehicle` INT NOT NULL,
   `Data` VARCHAR(45) NOT NULL,
   `Hora` VARCHAR(45) NOT NULL,
@@ -54,9 +54,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Vehicle`
+-- Table `Exercici 5`.`Vehicle`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Vehicle` (
+CREATE TABLE IF NOT EXISTS `Exercici 5`.`Vehicle` (
   `Matricula` INT NOT NULL,
   `Marca` VARCHAR(45) NOT NULL,
   `Model` VARCHAR(45) NOT NULL,
@@ -70,17 +70,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Vehicle` (
   INDEX `fk_Vehicle_Cita1_idx` (`Cita_Matricula_Vehicle` ASC) VISIBLE,
   CONSTRAINT `fk_Vehicle_client`
     FOREIGN KEY (`client_DNI`)
-    REFERENCES `mydb`.`Client` (`DNI`)
+    REFERENCES `Exercici 5`.`Client` (`DNI`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Vehicle_Tipus_Vehicle1`
     FOREIGN KEY (`Tipus_Vehicle_ID`)
-    REFERENCES `mydb`.`Tipus_Vehicle` (`ID`)
+    REFERENCES `Exercici 5`.`Tipus_Vehicle` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Vehicle_Cita1`
     FOREIGN KEY (`Cita_Matricula_Vehicle`)
-    REFERENCES `mydb`.`Cita` (`Matricula_Vehicle`)
+    REFERENCES `Exercici 5`.`Cita` (`Matricula_Vehicle`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
